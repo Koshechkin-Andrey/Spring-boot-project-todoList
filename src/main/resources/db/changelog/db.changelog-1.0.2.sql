@@ -2,4 +2,4 @@
 
 --changelog koshechkin:1
 ALTER TABLE task
-ADD COLUMN status;
+ADD COLUMN status VARCHAR;

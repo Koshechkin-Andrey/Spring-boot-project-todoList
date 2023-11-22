@@ -9,12 +9,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
-import org.springframework.data.annotation.TypeAlias;
 
-import javax.persistence.*;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
@@ -26,7 +22,7 @@ import java.time.LocalDateTime;
         @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class),
         @TypeDef(name = "json", typeClass = JsonStringType.class)
 })
-public class Task {
+public class Task extends TaskAuditing<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,4 +34,10 @@ public class Task {
 
     @Column(name = "date_of_creation")
     private LocalDateTime dateOfCreation;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
 }

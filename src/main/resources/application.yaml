@@ -3,3 +3,4 @@ spring:
       url: jdbc:postgresql://localhost:5433/todo-list-database
       username: koshechkin
       password: pass
+      driver-class-name: org.postgresql.Driver

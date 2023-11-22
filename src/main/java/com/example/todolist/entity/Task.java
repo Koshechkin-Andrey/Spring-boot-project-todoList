@@ -2,10 +2,7 @@ package com.example.todolist.entity;
 
 import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
 import io.hypersistence.utils.hibernate.type.json.JsonStringType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
@@ -22,6 +19,8 @@ import java.time.LocalDateTime;
         @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class),
         @TypeDef(name = "json", typeClass = JsonStringType.class)
 })
+@ToString(exclude = "user")
+@EqualsAndHashCode(of = "id")
 public class Task extends TaskAuditing<Long> {
 
     @Id
@@ -35,6 +34,7 @@ public class Task extends TaskAuditing<Long> {
     @Column(name = "date_of_creation")
     private LocalDateTime dateOfCreation;
 
+    @JoinColumn(name = "users_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 

@@ -1,6 +1,8 @@
 package com.example.todolist.entity;
 
+import com.fasterxml.jackson.annotation.JsonKey;
 import com.fasterxml.jackson.annotation.JsonRawValue;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
 import io.hypersistence.utils.hibernate.type.json.JsonStringType;
 import lombok.*;
@@ -9,6 +11,7 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Data
@@ -29,8 +32,8 @@ public class Task extends TaskAuditing<Long> {
     private Long id;
 
 
-
-    @Type(JsonBinaryType.class)
+    @JsonValue
+  //  @Type(JsonBinaryType.class)
     @Column(columnDefinition = "jsonb")
     private String description;
 

@@ -36,4 +36,23 @@ public class UserService {
                 .map(userRepository::saveAndFlush)
                 .map(userMapper::transferToDto).orElseThrow();
     }
+
+
+    @Transactional
+    public UserReadDto update(Long id, UserCreateEditDto userCreateEditDto){
+        return userRepository.findById(id)
+                .map(entity -> userMapper.copy(entity, userCreateEditDto))
+                .map(userRepository::saveAndFlush)
+                .map(userMapper::transferToDto)
+                .orElseThrow();
+    }
+
+    @Transactional
+    public boolean delete(Long id){
+        return userRepository.findById(id)
+                .map(it -> {
+                    userRepository.delete(it);
+                    return true;
+                }).orElse(false);
+    }
 }

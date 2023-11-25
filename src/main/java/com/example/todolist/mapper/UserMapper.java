@@ -1,5 +1,6 @@
 package com.example.todolist.mapper;
 
+import com.example.todolist.dto.UserCreateEditDto;
 import com.example.todolist.dto.UserReadDto;
 import com.example.todolist.entity.User;
 import org.springframework.stereotype.Component;
@@ -19,6 +20,12 @@ public class UserMapper implements BaseMapper<User, UserReadDto>{
     @Override
     public User transferToEntity(UserReadDto userDto) {
         return null;
+    }
+
+
+    public User copy(User user, UserCreateEditDto userCreateEditDto){
+        user.setEmail(user.getEmail());
+        return user;
     }
 
 }

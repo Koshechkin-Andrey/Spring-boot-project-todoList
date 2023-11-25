@@ -16,12 +16,6 @@ import org.springframework.test.context.jdbc.Sql;
 
 import java.util.List;
 
-@Sql({
-        "classpath:sql/data.sql"
-})
-@SpringBootTest
-@TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
-@ActiveProfiles("test")
 @RequiredArgsConstructor
 public class UserRepositoryIT extends TestContainerRunner {
 

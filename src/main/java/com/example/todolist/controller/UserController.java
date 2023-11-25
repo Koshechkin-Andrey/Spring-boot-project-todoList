@@ -44,5 +44,15 @@ public class UserController {
         userService.create(userCreateEditDto);
         return "redirect:/users";
     }
+
+    @PostMapping("/{id}/delete")
+    public String delete(@PathVariable("id")Long id){
+        if(!userService.delete(id)){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        userService.delete(id);
+        return "redirect:/users";
+    }
+
 }
 

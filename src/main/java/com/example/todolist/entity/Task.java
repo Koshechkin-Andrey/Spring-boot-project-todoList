@@ -29,7 +29,8 @@ public class Task extends TaskAuditing<Long> {
     private Long id;
 
 
-  //  @Type(JsonBinaryType.class)
+
+    @Type(JsonBinaryType.class)
     @Column(columnDefinition = "jsonb")
     private String description;
 

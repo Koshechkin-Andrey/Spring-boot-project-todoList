@@ -30,7 +30,7 @@ public class TaskRepositoryIT extends TestContainerRunner {
     @Test
     void shouldReturnTaskByUserId(){
         List<Task> taskByUserId = taskRepository.findTaskByUserId(1L);
-        System.out.println(taskByUserId);
+        String description = taskByUserId.get(0).getDescription();
     }
 
     @Test

@@ -6,5 +6,5 @@ public interface BaseMapper <F, T>{
 
     T transferToDto(F entity);
 
-    F transferToEntity(F userDto);
+    F transferToEntity(T userDto);
 }

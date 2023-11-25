@@ -17,7 +17,8 @@ public class UserMapper implements BaseMapper<User, UserReadDto>{
     }
 
     @Override
-    public User transferToEntity(User userDto) {
+    public User transferToEntity(UserReadDto userDto) {
         return null;
     }
+
 }

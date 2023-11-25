@@ -12,7 +12,7 @@ public class TodoListApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(TodoListApplication.class, args);
         TaskRepository bean = context.getBean(TaskRepository.class);
-        System.out.println(bean.findTaskByUserId(1L));
+
     }
 
 }

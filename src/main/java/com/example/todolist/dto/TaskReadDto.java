@@ -16,4 +16,5 @@ public class TaskReadDto {
     private String description;
     private LocalDateTime dateOfCreation;
     private String status;
+    private Long userId;
 }

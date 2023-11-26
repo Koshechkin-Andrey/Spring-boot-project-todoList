@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS users
 );
 
 
+
 --changeset koshechkin:2
 CREATE TABLE IF NOT EXISTS task
 (
@@ -18,4 +19,5 @@ CREATE TABLE IF NOT EXISTS task
     modified_at      TIMESTAMP,
     create_by        VARCHAR(32),
     modified_by      VARCHAR(32)
-)
+);
+

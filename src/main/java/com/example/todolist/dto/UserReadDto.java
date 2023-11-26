@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -13,4 +16,6 @@ public class UserReadDto {
 
     private Long id;
     private String email;
+
+    private List<TaskReadDto> taskReadDtoList = new ArrayList<>();
 }

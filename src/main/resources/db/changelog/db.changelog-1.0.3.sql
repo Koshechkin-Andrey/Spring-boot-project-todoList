@@ -1,10 +1,13 @@
+--changelog formatter sql
+
+--changeset koshechkin:1
 INSERT INTO users (id, email)
 VALUES (1, 'alex@gmail.com'),
        (2, 'bob@gmail.com'),
        (3, 'anna@gmail.com');
 SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));
 
-
+--changeset koshechkin:1
 INSERT INTO task(id, description, date_of_creation, users_id, status)
 VALUES (1, '{"description":"Нужно изучить spring-boot"}', '2023.10.21', 1, 'IN_PROGRESS'),
        (2, '{"description":"Нужно изучить java core"}', '2023.09.01', 1, 'COMPLETED'),

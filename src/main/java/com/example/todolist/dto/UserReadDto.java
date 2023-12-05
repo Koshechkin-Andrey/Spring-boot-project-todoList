@@ -15,7 +15,7 @@ import java.util.List;
 public class UserReadDto {
 
     private Long id;
-    private String email;
+    private String username;
 
     private List<TaskReadDto> taskReadDtoList = new ArrayList<>();
 }

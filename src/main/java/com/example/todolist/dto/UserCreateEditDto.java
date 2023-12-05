@@ -13,5 +13,5 @@ import lombok.experimental.FieldNameConstants;
 @FieldNameConstants
 public class UserCreateEditDto {
 
-    private String email;
+    private String username;
 }

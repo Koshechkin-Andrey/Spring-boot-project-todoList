@@ -38,7 +38,7 @@ public class JdbcTemplateCustomImpl implements JdbcTemplateCustom {
     @Override
     public int insertBatch(User... users) {
         List<Object[]> objects = Arrays.stream(users).map(usr -> new Object[]{
-                usr.getEmail()
+                usr.getUsername()
         }).toList();
         return jdbcTemplate.batchUpdate(INSERT_BATCH, objects).length;
     }
@@ -61,7 +61,7 @@ public class JdbcTemplateCustomImpl implements JdbcTemplateCustom {
             public User mapRow(ResultSet rs, int rowNum) throws SQLException {
                 return User.builder()
                         .id(rs.getLong("id"))
-                        .email(rs.getString("email"))
+                        .username(rs.getString("email"))
                         .build();
             }
         });

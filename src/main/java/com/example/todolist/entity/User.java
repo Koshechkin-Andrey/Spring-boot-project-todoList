@@ -20,11 +20,17 @@ public class User implements GenerationId<Long> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
-    private String email;
+    @Column(name = "email",unique = true)
+    private String username;
+
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Builder.Default
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Task> tasks = new ArrayList<>();
+
 }
 
